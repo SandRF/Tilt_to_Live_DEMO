@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StartSenceSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group x="369.241" y="943.288">
+		<e:Image id="btn_newgame" source="btn_newgame_png" x="0" y="0" scaleX="1.5" scaleY="1.5"/>
+		<e:Image id="btn_options" source="btn_options_png" x="4.87" y="158.47" scaleX="1.5" scaleY="1.5"/>
+		<e:Image id="btn_highscores" source="btn_highscores_png" x="5.81" y="201.89" scaleX="1.5" scaleY="1.5"/>
+		<e:layout>
+		<e:VerticalLayout gap="15"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="RootSenceSkin"
+	 width="750"
+	height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="img_bg" source="bg_jpg" horizontalCenter="0" verticalCenter="0" touchEnabled="false" locked="true"/>
+	<e:Group id="sencesGroup" touchEnabled="false" left="0" right="0" top="0" bottom="0" locked="true"/>
+</e:Skin>
