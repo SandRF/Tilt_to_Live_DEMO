@@ -18,7 +18,7 @@ class SoundManager {
 
     public constructor() {
         this.menuMusic = new egret.Sound();
-        this.menuMusic.load("resource/assets/Game/sound/mainmenuloop.mp3");
+        this.menuMusic.load("resource/assets/Game/sound/classic_theme.mp3");
         this.menuMusic.addEventListener(egret.Event.COMPLETE, () => {
             this.ismenuMsuciComplete = true;
         }, this);
