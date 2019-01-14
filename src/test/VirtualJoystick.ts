@@ -34,16 +34,16 @@ class VirtualJoystick extends eui.Component {
 
     //启动虚拟摇杆 (监听事件根据实际情况设置，不然点一下UI上的其他按钮，也会触发虚拟摇杆事件。这里只是做demo，就没那么讲究了 - -!)
     public start() {
-        SenceManager.getinstance()._root.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        SenceManager.getinstance()._root.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-        SenceManager.getinstance()._root.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        SenceManager.Instance._root.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        SenceManager.Instance._root.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        SenceManager.Instance._root.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
     }
 
     //停止虚拟摇杆
     public stop() {
-        SenceManager.getinstance()._root.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        SenceManager.getinstance()._root.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
-        SenceManager.getinstance()._root.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        SenceManager.Instance._root.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
+        SenceManager.Instance._root.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEnd, this);
+        SenceManager.Instance._root.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
     }
 
     //触摸开始，显示虚拟摇杆
@@ -56,7 +56,7 @@ class VirtualJoystick extends eui.Component {
         this.y = e.stageY;
         this.ball.x = this.centerX;
         this.ball.y = this.centerY;
-        SenceManager.getinstance()._root.addChild(this);
+        SenceManager.Instance._root.addChild(this);
 
         this.dispatchEvent(new egret.Event("vj_start"));
     }

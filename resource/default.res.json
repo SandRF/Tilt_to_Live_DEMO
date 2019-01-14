@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,bg_jpg,btn_continue_png,btn_howtoplay_png,btn_newgame_png,btn_options_png,btn_highscores_png,player_png,broder_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,bg_jpg,btn_continue_png,btn_howtoplay_png,btn_newgame_png,btn_options_png,btn_highscores_png,player_png,broder_png,dot_00_png,dot_01_png,ice_00_png,ice_1_png,ice_10_png,ice_11_png,ice_12_png,ice_13_png,ice_14_png,ice_15_png,ice_2_png,ice_3_png,ice_4_png,ice_5_png,ice_6_png,ice_7_png",
 			"name": "preload"
 		},
 		{
@@ -169,6 +169,86 @@
 			"name": "broder_png",
 			"type": "image",
 			"url": "assets/Game/gameSence/broder.png"
+		},
+		{
+			"name": "dot_00_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/dot/dot_00.png"
+		},
+		{
+			"name": "dot_01_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/dot/dot_01.png"
+		},
+		{
+			"name": "ice_00_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_00.png"
+		},
+		{
+			"name": "ice_1_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_1.png"
+		},
+		{
+			"name": "ice_10_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_10.png"
+		},
+		{
+			"name": "ice_11_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_11.png"
+		},
+		{
+			"name": "ice_12_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_12.png"
+		},
+		{
+			"name": "ice_13_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_13.png"
+		},
+		{
+			"name": "ice_14_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_14.png"
+		},
+		{
+			"name": "ice_15_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_15.png"
+		},
+		{
+			"name": "ice_2_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_2.png"
+		},
+		{
+			"name": "ice_3_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_3.png"
+		},
+		{
+			"name": "ice_4_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_4.png"
+		},
+		{
+			"name": "ice_5_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_5.png"
+		},
+		{
+			"name": "ice_6_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_6.png"
+		},
+		{
+			"name": "ice_7_png",
+			"type": "image",
+			"url": "assets/Game/gameSence/ice/ice_7.png"
 		}
 	]
 }

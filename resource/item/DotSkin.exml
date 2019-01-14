@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="DotSkin"
+	 width="28"
+	height="28" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="dot_01_png"/>
+</e:Skin>

@@ -97,6 +97,6 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
-        SenceManager.getinstance().addSence(new RootSence(), this);
+        SenceManager.Instance.addSence(new RootSence(), this);
     }
 }

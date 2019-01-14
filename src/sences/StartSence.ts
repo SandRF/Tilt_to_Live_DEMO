@@ -15,20 +15,23 @@ class StartSence extends eui.Component {
     }
 
     private init() {
+
+        //测试 播放音乐 menu
+        SoundManager.Instance.playMenuMusic();
+
         //添加按钮的点击事件
         this.btn_newgame.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-            SenceManager.getinstance().addSence(SenceManager.getinstance().gameSence);
-            SenceManager.getinstance().removeSence(this);
+            SenceManager.Instance.addSence(SenceManager.Instance.gameSence);
+            SenceManager.Instance.removeSence(this);
         }, this);
 
         this.btn_options.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
 
         }, this);
 
-        //测试的HomeSence
+        //测试用
         this.btn_highscores.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-            SenceManager.getinstance().addSence(SenceManager.getinstance().homeSence);
-            SenceManager.getinstance().removeSence(this);
+            SoundManager.Instance.isMusic = !SoundManager.Instance.isMusic;
         }, this);
     }
 }

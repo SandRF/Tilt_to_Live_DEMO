@@ -3,7 +3,7 @@ class SenceManager {
      * 单例
      */
     static _senceManager: SenceManager;
-    static getinstance() {
+    public static get Instance() {
         if (this._senceManager == null) {
             this._senceManager = new SenceManager();
         }

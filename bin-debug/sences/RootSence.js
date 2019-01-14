@@ -25,9 +25,9 @@ var RootSence = (function (_super) {
         //TODO 标记用,完成后清除
         this.sencesGroup.name = "sencesGroup";
         //设置根场景
-        SenceManager.getinstance()._root = this.sencesGroup;
+        SenceManager.Instance._root = this.sencesGroup;
         //第一次进入rootsence,加载startsence
-        SenceManager.getinstance().addSence(SenceManager.getinstance().startSence);
+        SenceManager.Instance.addSence(SenceManager.Instance.startSence);
     };
     return RootSence;
 }(eui.Component));

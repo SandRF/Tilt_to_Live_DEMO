@@ -9,12 +9,16 @@ var SenceManager = (function () {
         this.gameOverSence = new GameOverSence();
         this.homeSence = new HomeScene();
     }
-    SenceManager.getinstance = function () {
-        if (this._senceManager == null) {
-            this._senceManager = new SenceManager();
-        }
-        return this._senceManager;
-    };
+    Object.defineProperty(SenceManager, "Instance", {
+        get: function () {
+            if (this._senceManager == null) {
+                this._senceManager = new SenceManager();
+            }
+            return this._senceManager;
+        },
+        enumerable: true,
+        configurable: true
+    });
     /**设置根场景 */
     SenceManager.prototype.setStage = function (root) {
         if (this._root == null) {

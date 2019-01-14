@@ -12,6 +12,11 @@ var GameSence = (function (_super) {
     __extends(GameSence, _super);
     function GameSence() {
         var _this = _super.call(this) || this;
+        //移动速度
+        _this.speed = 2;
+        //测试用
+        _this.num_frame = 0;
+        _this.num_move = 0;
         _this.skinName = "GameSenceSkin";
         return _this;
     }
@@ -22,7 +27,6 @@ var GameSence = (function (_super) {
     GameSence.prototype.init = function () {
         this.player.anchorOffsetX = this.player.width / 2;
         this.player.anchorOffsetY = this.player.height / 2;
-        this.player.rotation = -45;
         //边界内左上角的本地坐标      
         var point = new egret.Point(21, 23);
         //算出边界四个点坐标
@@ -36,24 +40,25 @@ var GameSence = (function (_super) {
         //按钮用touchtap
     };
     GameSence.prototype.touchBegin = function (e) {
-        // console.log(`touchBegin X:`, e.stageX, `touchBegin Y:`, e.stageY);
         //记录点击的位置
         this.posX = e.stageX;
         this.posY = e.stageY;
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
+        // let dot = new Dot();
+        // this.addChild(dot);
+        // this.addEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     };
     //TODO 跟随触摸移动 简单粗暴箭头的移动距离就是我触摸移动的距离的2倍
     //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     GameSence.prototype.touchMove = function (e) {
+        // console.log(`move:${++this.num_move}`)
         //计算移动的距离
         var offsetX = e.stageX - this.posX;
         var offsetY = e.stageY - this.posY;
         //需要移动到的坐标
-        var newPosX = this.player.x + 2 * offsetX;
-        var newPosY = this.player.y + 2 * offsetY;
-        // let newPosX = this.player.x + offsetX;
-        // let newPosY = this.player.y + offsetY;
+        var newPosX = this.player.x + this.speed * offsetX;
+        var newPosY = this.player.y + this.speed * offsetY;
         //判断是否在边界内 -是 : 赋值给player
         if (newPosX > this.broderX_left && newPosX < this.broderX_right) {
             this.player.x = newPosX;
@@ -61,69 +66,49 @@ var GameSence = (function (_super) {
         if (newPosY > this.broderY_top && newPosY < this.broderY_bottom) {
             this.player.y = newPosY;
         }
-        // //player的朝向
-        var rad = Math.atan2(offsetY, offsetX);
-        // console.log(`rad:`, rad);
+        this.ex_point.x = this.posX;
+        this.ex_point.y = this.posY;
+        this.cur_point.x = e.stageX;
+        this.cur_point.y = e.stageY;
+        var rad = Tool.getAngelByUI(this.ex_point, this.cur_point);
         if (rad > Math.PI) {
             rad -= 2 * Math.PI;
         }
         else if (rad < -Math.PI) {
             rad += 2 * Math.PI;
         }
-        var angle = rad / Math.PI * 180 + 45;
-        console.log("angle:", angle);
-        this.player.rotation = angle;
-        //cocos
-        // let keyRotate = (360 - 180 * Math.atan2(this.player.y - e.stageY, this.player.x - e.stageX) / Math.PI + 90) % 360;
-        // 270 < this.player.rotation && 90 > angle ? this.player.rotation -= 360 : 90 > this.player.rotation && 270 < angle && (this.player.rotation += 360);
-        // this.keySpeed += (l(this.keyX - this.x) + l(this.keyY - this.y)) / 60,
-        // this.keySpeed += l(this.keyRotate - this.sprite.rotation) / 40;
-        // console.log(keyRotate);
-        // keyRotate = (360 - 180 * Math.atan2(offsetY, offsetX) /Math.PI + 90) % 360,
-        // 270 < this.sprite.rotation && 90 > this.keyRotate ? this.sprite.rotation -= 360 : 90 > this.sprite.rotation && 270 < this.keyRotate && (this.sprite.rotation += 360),
-        // this.keySpeed += (l(this.keyX - this.x) + l(this.keyY - this.y)) / 60,
-        // this.keySpeed += l(this.keyRotate - this.sprite.rotation) / 40;
-        //网上找的封装好的方法
-        // this.ex_point.x = this.posX;
-        // this.ex_point.y = this.posY;
-        // this.cur_point.x = e.stageX;
-        // this.cur_point.y = e.stageY;
-        // let rad = this.getAngelByUI(this.ex_point, this.cur_point);
-        // console.log(`1`,this.player.rotation);
-        // this.player.rotation = rad / Math.PI * 180 + 45;
-        // console.log(`2`,this.player.rotation);
+        // this.player.rotation = rad / Math.PI * 180 + 90;
+        // console.log(`别人封装的rad`, rad);
+        // console.log(`加上偏移量`, this.player.rotation)
+        var angle = rad / Math.PI * 180 + 90;
+        this.tw_rotate(angle);
         //记录下当前的坐标
         this.posX = e.stageX;
         this.posY = e.stageY;
     };
     GameSence.prototype.touchEnd = function (e) {
+        // console.log("touchend")
+        // this.num_move = 0;
+        // this.num_frame = 0;
+        // this.removeEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     };
-    /**
-     * 获取DirectX坐标系弧度
-     */
-    GameSence.prototype.getAngelByUI = function (_start, _end) {
-        var distance = egret.Point.distance(_start, _end); //两点间的距离
-        var point = new egret.Point(_end.x - _start.x, _end.y - _start.y);
-        if (point.x == 0 && point.y > 0) {
-            //return Math.PI * 0.5*(180/Math.PI);弧度转角度   弧度**(180/Math.PI);
-            return Math.PI * 0.5; //弧度
+    GameSence.prototype.frame = function () {
+        console.log("\u5E27: " + ++this.num_frame);
+    };
+    //更新旋转tween
+    GameSence.prototype.tw_rotate = function (angle) {
+        egret.Tween.removeTweens(this.player);
+        var tw = egret.Tween.get(this.player);
+        console.log(angle);
+        if (angle >= 180) {
+            angle -= 360 * (Math.floor(angle / 360) + 1);
         }
-        else if (point.x == 0 && point.y < 0) {
-            return Math.PI * 1.5;
+        else if (angle <= -180) {
+            angle += 360 * (Math.floor(angle / -360) + 1);
         }
-        else if (point.x > 0 && point.y >= 0) {
-            return Math.atan(Math.abs(point.y / point.x));
-        }
-        else if (point.x < 0 && point.y >= 0) {
-            return (Math.atan(Math.abs(point.x / point.y)) + Math.PI * 0.5);
-        }
-        else if (point.x > 0 && point.y < 0) {
-            return Math.atan(point.y / point.x); //对于Egret而言这个弧度跟OpenGL不同,大家有没有注意到？
-        }
-        else if (point.x < 0 && point.y < 0) {
-            return (Math.atan(Math.abs(point.x / point.y)) + Math.PI);
-        }
-        return 0;
+        console.log("\u5904\u7406", angle);
+        //判断顺时针转还是逆时针转
+        tw.to({ rotation: angle }, 100);
     };
     return GameSence;
 }(eui.Component));

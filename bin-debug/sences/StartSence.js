@@ -21,17 +21,18 @@ var StartSence = (function (_super) {
     };
     StartSence.prototype.init = function () {
         var _this = this;
+        //测试 播放音乐 menu
+        SoundManager.Instance.playMenuMusic();
         //添加按钮的点击事件
         this.btn_newgame.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            SenceManager.getinstance().addSence(SenceManager.getinstance().gameSence);
-            SenceManager.getinstance().removeSence(_this);
+            SenceManager.Instance.addSence(SenceManager.Instance.gameSence);
+            SenceManager.Instance.removeSence(_this);
         }, this);
         this.btn_options.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
         }, this);
-        //测试的HomeSence
+        //测试用
         this.btn_highscores.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            SenceManager.getinstance().addSence(SenceManager.getinstance().homeSence);
-            SenceManager.getinstance().removeSence(_this);
+            SoundManager.Instance.isMusic = !SoundManager.Instance.isMusic;
         }, this);
     };
     return StartSence;

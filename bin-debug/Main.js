@@ -162,7 +162,7 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        SenceManager.getinstance().addSence(new RootSence(), this);
+        SenceManager.Instance.addSence(new RootSence(), this);
     };
     return Main;
 }(eui.UILayer));
