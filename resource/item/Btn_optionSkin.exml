@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="Btn_optionSkin" currentState="ON" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="OFF,ON" >
+	<e:Image id="btn_on" visible.OFF="false" source="musicOn_png"/>
+	<e:Image id="btn_off" visible.ON="false" source="" source.OFF="musicOff_png"/>
+</e:Skin>

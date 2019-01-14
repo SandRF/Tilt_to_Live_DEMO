@@ -6,7 +6,7 @@ var SoundManager = (function () {
         var _this = this;
         this.ismenuMsuciComplete = false;
         this.menuMusic = new egret.Sound();
-        this.menuMusic.load("resource/assets/Game/sound/mainmenuloop.mp3");
+        this.menuMusic.load("resource/assets/Game/sound/classic_theme.mp3");
         this.menuMusic.addEventListener(egret.Event.COMPLETE, function () {
             _this.ismenuMsuciComplete = true;
         }, this);

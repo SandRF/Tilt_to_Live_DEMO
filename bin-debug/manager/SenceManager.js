@@ -7,7 +7,7 @@ var SenceManager = (function () {
         this.startSence = new StartSence();
         this.gameSence = new GameSence();
         this.gameOverSence = new GameOverSence();
-        this.homeSence = new HomeScene();
+        this.options = new Options();
     }
     Object.defineProperty(SenceManager, "Instance", {
         get: function () {

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="OptionsSkin"
+	 width="750"
+	height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<e:Image source="bg_box_png" scale9Grid="74,82,453,54" anchorOffsetY="0" height="295.827" y="478" x="63" locked="true"/>
+	<e:Label text="设 置" x="268" y="431.294" size="60" bold="true" fontFamily="Microsoft YaHei" stroke="10" strokeColor="0x417505" anchorOffsetX="0" width="215.014" anchorOffsetY="0" height="117.009" verticalAlign="middle" textAlign="center" locked="true"/>
+	<e:Group y="585" horizontalCenter="0" locked="true">
+		<e:Group anchorOffsetX="1" anchorOffsetY="1">
+			<ns1:Btn_option id="btn_music" x="11.2" y="0" skinName="Btn_optionSkin" scaleX="1.2" scaleY="1.2"/>
+			<e:Label text="音乐" x="0" y="84.9" size="40" stroke="5" strokeColor="0x417505" fontFamily="Microsoft YaHei" bold="true" textAlign="center" verticalAlign="middle"/>
+			<e:layout>
+			<e:TileLayout verticalAlign="middle" horizontalAlign="center"/>
+			</e:layout>
+		</e:Group>
+		<e:Group>
+			<ns1:Btn_option id="btn_effect" y="0" skinName="Btn_optionSkin" scaleX="1.2" scaleY="1.2" x="10.49"/>
+			<e:Label text="音效" size="40" stroke="5" strokeColor="0x417505" fontFamily="Microsoft YaHei" bold="true" textAlign="center" verticalAlign="middle"/>
+			<e:layout>
+				<e:TileLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group>
+			<ns1:Btn_option id="btn_vibrator" x="11.2" y="0" skinName="Btn_optionSkin" scaleX="1.2" scaleY="1.2"/>
+			<e:Label text="震动" x="0" y="84.9" size="40" stroke="5" strokeColor="0x417505" fontFamily="Microsoft YaHei" bold="true" textAlign="center" verticalAlign="middle"/>
+			<e:layout>
+				<e:TileLayout horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout horizontalAlign="center" gap="90"/>
+		</e:layout>
+	</e:Group>
+	<e:Image id="btn_return" source="btn_return_png" y="720" scaleX="1.5" scaleY="1.5" x="315" locked="true"/>
+</e:Skin>

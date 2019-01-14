@@ -68,10 +68,9 @@ class GameSence extends eui.Component {
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
 
-        // let dot = new Dot();
-        // this.addChild(dot);
+        let dot = new Dot();
+        this.addChild(dot);
 
-        // this.addEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     }
 
     //TODO 跟随触摸移动 简单粗暴箭头的移动距离就是我触摸移动的距离的2倍

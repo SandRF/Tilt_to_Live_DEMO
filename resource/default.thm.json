@@ -30,9 +30,11 @@
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
 		"resource/eui_skins/VSliderSkin.exml",
+		"resource/item/Btn_optionSkin.exml",
 		"resource/item/DotSkin.exml",
 		"resource/sences/GameOverSenceSkin.exml",
 		"resource/sences/GameSenceSkin.exml",
+		"resource/sences/OptionsSkin.exml",
 		"resource/sences/RootSenceSkin.exml",
 		"resource/sences/StartSenceSkin.exml"
 	],

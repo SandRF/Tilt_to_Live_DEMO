@@ -29,10 +29,10 @@ var StartSence = (function (_super) {
             SenceManager.Instance.removeSence(_this);
         }, this);
         this.btn_options.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SenceManager.Instance.addSence(SenceManager.Instance.options);
         }, this);
         //测试用
         this.btn_highscores.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            SoundManager.Instance.isMusic = !SoundManager.Instance.isMusic;
         }, this);
     };
     return StartSence;

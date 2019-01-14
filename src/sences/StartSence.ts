@@ -16,7 +16,7 @@ class StartSence extends eui.Component {
 
     private init() {
 
-        //测试 播放音乐 menu
+        //TODO 播放菜单的音乐前,先判断本地存储的开关状态
         SoundManager.Instance.playMenuMusic();
 
         //添加按钮的点击事件
@@ -26,12 +26,11 @@ class StartSence extends eui.Component {
         }, this);
 
         this.btn_options.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-
+            SenceManager.Instance.addSence(SenceManager.Instance.options);
         }, this);
 
         //测试用
         this.btn_highscores.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
-            SoundManager.Instance.isMusic = !SoundManager.Instance.isMusic;
         }, this);
     }
 }

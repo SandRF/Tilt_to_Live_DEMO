@@ -45,9 +45,8 @@ var GameSence = (function (_super) {
         this.posY = e.stageY;
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
-        // let dot = new Dot();
-        // this.addChild(dot);
-        // this.addEventListener(egret.Event.ENTER_FRAME, this.frame, this);
+        var dot = new Dot();
+        this.addChild(dot);
     };
     //TODO 跟随触摸移动 简单粗暴箭头的移动距离就是我触摸移动的距离的2倍
     //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角

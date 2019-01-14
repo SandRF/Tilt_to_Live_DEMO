@@ -15,6 +15,7 @@ class SenceManager {
     public startSence: StartSence;
     public gameSence: GameSence;
     public gameOverSence: GameOverSence;
+    public options:Options;
 
     //测试
     public homeSence: HomeScene;
@@ -26,7 +27,7 @@ class SenceManager {
         this.startSence = new StartSence();
         this.gameSence = new GameSence();
         this.gameOverSence = new GameOverSence();
-        this.homeSence = new HomeScene();
+        this.options=new Options();
     }
 
     /**设置根场景 */

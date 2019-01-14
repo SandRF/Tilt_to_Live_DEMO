@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,bg_jpg,btn_continue_png,btn_howtoplay_png,btn_newgame_png,btn_options_png,btn_highscores_png,player_png,broder_png,dot_00_png,dot_01_png,ice_00_png,ice_1_png,ice_10_png,ice_11_png,ice_12_png,ice_13_png,ice_14_png,ice_15_png,ice_2_png,ice_3_png,ice_4_png,ice_5_png,ice_6_png,ice_7_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,bg_jpg,btn_continue_png,btn_howtoplay_png,btn_newgame_png,btn_options_png,btn_highscores_png,player_png,broder_png,dot_00_png,dot_01_png,ice_00_png,ice_1_png,ice_10_png,ice_11_png,ice_12_png,ice_13_png,ice_14_png,ice_15_png,ice_2_png,ice_3_png,ice_4_png,ice_5_png,ice_6_png,ice_7_png,soundOn_png,soundOff_png,musicOn_png,musicOff_png,bg_box_png,btn_return_png",
 			"name": "preload"
 		},
 		{
@@ -249,6 +249,36 @@
 			"name": "ice_7_png",
 			"type": "image",
 			"url": "assets/Game/gameSence/ice/ice_7.png"
+		},
+		{
+			"name": "soundOn_png",
+			"type": "image",
+			"url": "assets/Game/startSence/soundOn.png"
+		},
+		{
+			"name": "soundOff_png",
+			"type": "image",
+			"url": "assets/Game/startSence/soundOff.png"
+		},
+		{
+			"name": "musicOn_png",
+			"type": "image",
+			"url": "assets/Game/startSence/musicOn.png"
+		},
+		{
+			"name": "musicOff_png",
+			"type": "image",
+			"url": "assets/Game/startSence/musicOff.png"
+		},
+		{
+			"name": "bg_box_png",
+			"type": "image",
+			"url": "assets/Game/startSence/bg_box.png"
+		},
+		{
+			"name": "btn_return_png",
+			"type": "image",
+			"url": "assets/Game/startSence/btn_return.png"
 		}
 	]
 }
