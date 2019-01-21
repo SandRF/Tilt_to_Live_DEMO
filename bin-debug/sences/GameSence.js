@@ -92,20 +92,20 @@ var GameSence = (function (_super) {
         // this.removeEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     };
     GameSence.prototype.frame = function () {
-        console.log("\u5E27: " + ++this.num_frame);
     };
     //更新旋转tween
     GameSence.prototype.tw_rotate = function (angle) {
         egret.Tween.removeTweens(this.player);
         var tw = egret.Tween.get(this.player);
-        console.log(angle);
+        console.log("\u5F53\u524D\u65CB\u8F6C: " + this.player.rotation);
+        console.log("\u9700\u8981\u65CB\u8F6C\u5230:", angle);
         if (angle >= 180) {
             angle -= 360 * (Math.floor(angle / 360) + 1);
         }
         else if (angle <= -180) {
             angle += 360 * (Math.floor(angle / -360) + 1);
         }
-        console.log("\u5904\u7406", angle);
+        // console.log(`处理`, angle)
         //判断顺时针转还是逆时针转
         tw.to({ rotation: angle }, 100);
     };

@@ -27,8 +27,8 @@ var Options = (function (_super) {
         this.btn_vibrator.init("musicOn_png", "musicOff_png");
         //音乐开关
         this.btn_music.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            SoundManager.Instance.isMusic = !SoundManager.Instance.isMusic;
-            _this.btn_music.changeState(SoundManager.Instance.isMusic);
+            SoundManager.Instance.isMusicOn = !SoundManager.Instance.isMusicOn;
+            _this.btn_music.changeState(SoundManager.Instance.isMusicOn);
         }, this);
         //音效开关
         this.btn_effect.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {

@@ -38,11 +38,8 @@ class GameSence extends eui.Component {
     }
 
     private init() {
-
         this.player.anchorOffsetX = this.player.width / 2;
         this.player.anchorOffsetY = this.player.height / 2;
-
-
 
         //边界内左上角的本地坐标      
         let point: egret.Point = new egret.Point(21, 23);
@@ -52,13 +49,31 @@ class GameSence extends eui.Component {
         this.broderY_top = this.img_broder.y + point.y;
         this.broderY_bottom = this.img_broder.y + this.img_broder.height - point.y;
 
-        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
-        this.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
-        //按钮用touchtap
+        this.addMoveEvent();
+       
+        //TODO 按钮用touchtap
+
+        //TODO player的帧事件,判断碰撞到的物体(道具/DOT),相应的方法
+        //TODO 生成道具
+        //TODO 生成DOT
 
 
     }
+
+    /**添加触摸移动的点击事件 */
+    private addMoveEvent(){
+        this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
+        this.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
+    }
+
+    /**移除触摸移动的点击事件  */
+    private removeMoveEvent(){
+        this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
+    }
+
 
     private touchBegin(e: egret.TouchEvent) {
         //记录点击的位置
@@ -68,18 +83,12 @@ class GameSence extends eui.Component {
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
 
+        //TODO 测试用代码
         let dot = new Dot();
         this.addChild(dot);
-
     }
 
-    //TODO 跟随触摸移动 简单粗暴箭头的移动距离就是我触摸移动的距离的2倍
-    //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     private touchMove(e: egret.TouchEvent) {
-        // console.log(`move:${++this.num_move}`)
-
-
-
         //计算移动的距离
         let offsetX: number = e.stageX - this.posX;
         let offsetY: number = e.stageY - this.posY;
@@ -106,10 +115,6 @@ class GameSence extends eui.Component {
         } else if (rad < -Math.PI) {
             rad += 2 * Math.PI;
         }
-        // this.player.rotation = rad / Math.PI * 180 + 90;
-        // console.log(`别人封装的rad`, rad);
-        // console.log(`加上偏移量`, this.player.rotation)
-
         let angle: number = rad / Math.PI * 180 + 90;
         this.tw_rotate(angle);
         //记录下当前的坐标
@@ -118,33 +123,28 @@ class GameSence extends eui.Component {
     }
 
     private touchEnd(e: egret.TouchEvent) {
-        // console.log("touchend")
-        // this.num_move = 0;
-        // this.num_frame = 0;
-        // this.removeEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     }
 
-    frame() {
-        console.log(`帧: ${++this.num_frame}`);
-    }
-
+    //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     //更新旋转tween
-
     private tw_rotate(angle: number) {
         egret.Tween.removeTweens(this.player);
         let tw: egret.Tween = egret.Tween.get(this.player);
 
-        console.log(angle);
+        console.log(`当前旋转: ${this.player.rotation}`)
+        console.log(`需要旋转到:`, angle);
         if (angle >= 180) {
             angle -= 360 * (Math.floor(angle / 360) + 1);
         } else if (angle <= -180) {
             angle += 360 * (Math.floor(angle / -360) + 1);
         }
-        console.log(`处理`, angle)
+        // console.log(`处理`, angle)
         //判断顺时针转还是逆时针转
         tw.to({ rotation: angle }, 100);
     }
 
 
     //TODO 需要一个对象池存放dot
+
+
 }

@@ -16,7 +16,7 @@ class Dot extends eui.Component {
         //测试用的初始坐标
         this.x = 0;
         this.y = 0;
-        // this.addEventListener(egret.Event.ENTER_FRAME, this.frame, this);
+        this.addEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     }
 
 

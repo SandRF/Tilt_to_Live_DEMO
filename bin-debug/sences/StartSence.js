@@ -21,7 +21,7 @@ var StartSence = (function (_super) {
     };
     StartSence.prototype.init = function () {
         var _this = this;
-        //测试 播放音乐 menu
+        //TODO 播放菜单的音乐前,先判断本地存储的开关状态
         SoundManager.Instance.playMenuMusic();
         //添加按钮的点击事件
         this.btn_newgame.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
