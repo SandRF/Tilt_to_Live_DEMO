@@ -7,6 +7,10 @@
 		{
 			"keys": "",
 			"name": "startSence"
+		},
+		{
+			"keys": "classic_theme_mp3,mainmenuloop_mp3",
+			"name": "sounds"
 		}
 	],
 	"resources": [
@@ -131,154 +135,164 @@
 			"name": "description_json"
 		},
 		{
-			"name": "bg_jpg",
+			"url": "assets/Game/startSence/bg.jpg",
 			"type": "image",
-			"url": "assets/Game/startSence/bg.jpg"
+			"name": "bg_jpg"
 		},
 		{
-			"name": "btn_continue_png",
+			"url": "assets/Game/startSence/btn_continue.png",
 			"type": "image",
-			"url": "assets/Game/startSence/btn_continue.png"
+			"name": "btn_continue_png"
 		},
 		{
-			"name": "btn_howtoplay_png",
+			"url": "assets/Game/startSence/btn_howtoplay.png",
 			"type": "image",
-			"url": "assets/Game/startSence/btn_howtoplay.png"
+			"name": "btn_howtoplay_png"
 		},
 		{
-			"name": "btn_newgame_png",
+			"url": "assets/Game/startSence/btn_newgame.png",
 			"type": "image",
-			"url": "assets/Game/startSence/btn_newgame.png"
+			"name": "btn_newgame_png"
 		},
 		{
-			"name": "btn_options_png",
+			"url": "assets/Game/startSence/btn_options.png",
 			"type": "image",
-			"url": "assets/Game/startSence/btn_options.png"
+			"name": "btn_options_png"
 		},
 		{
-			"name": "btn_highscores_png",
+			"url": "assets/Game/startSence/btn_highscores.png",
 			"type": "image",
-			"url": "assets/Game/startSence/btn_highscores.png"
+			"name": "btn_highscores_png"
 		},
 		{
-			"name": "player_png",
+			"url": "assets/Game/gameSence/player.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/player.png"
+			"name": "player_png"
 		},
 		{
-			"name": "broder_png",
+			"url": "assets/Game/gameSence/broder.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/broder.png"
+			"name": "broder_png"
 		},
 		{
-			"name": "dot_00_png",
+			"url": "assets/Game/gameSence/dot/dot_00.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/dot/dot_00.png"
+			"name": "dot_00_png"
 		},
 		{
-			"name": "dot_01_png",
+			"url": "assets/Game/gameSence/dot/dot_01.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/dot/dot_01.png"
+			"name": "dot_01_png"
 		},
 		{
-			"name": "ice_00_png",
+			"url": "assets/Game/gameSence/ice/ice_00.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_00.png"
+			"name": "ice_00_png"
 		},
 		{
-			"name": "ice_1_png",
+			"url": "assets/Game/gameSence/ice/ice_1.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_1.png"
+			"name": "ice_1_png"
 		},
 		{
-			"name": "ice_10_png",
+			"url": "assets/Game/gameSence/ice/ice_10.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_10.png"
+			"name": "ice_10_png"
 		},
 		{
-			"name": "ice_11_png",
+			"url": "assets/Game/gameSence/ice/ice_11.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_11.png"
+			"name": "ice_11_png"
 		},
 		{
-			"name": "ice_12_png",
+			"url": "assets/Game/gameSence/ice/ice_12.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_12.png"
+			"name": "ice_12_png"
 		},
 		{
-			"name": "ice_13_png",
+			"url": "assets/Game/gameSence/ice/ice_13.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_13.png"
+			"name": "ice_13_png"
 		},
 		{
-			"name": "ice_14_png",
+			"url": "assets/Game/gameSence/ice/ice_14.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_14.png"
+			"name": "ice_14_png"
 		},
 		{
-			"name": "ice_15_png",
+			"url": "assets/Game/gameSence/ice/ice_15.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_15.png"
+			"name": "ice_15_png"
 		},
 		{
-			"name": "ice_2_png",
+			"url": "assets/Game/gameSence/ice/ice_2.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_2.png"
+			"name": "ice_2_png"
 		},
 		{
-			"name": "ice_3_png",
+			"url": "assets/Game/gameSence/ice/ice_3.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_3.png"
+			"name": "ice_3_png"
 		},
 		{
-			"name": "ice_4_png",
+			"url": "assets/Game/gameSence/ice/ice_4.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_4.png"
+			"name": "ice_4_png"
 		},
 		{
-			"name": "ice_5_png",
+			"url": "assets/Game/gameSence/ice/ice_5.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_5.png"
+			"name": "ice_5_png"
 		},
 		{
-			"name": "ice_6_png",
+			"url": "assets/Game/gameSence/ice/ice_6.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_6.png"
+			"name": "ice_6_png"
 		},
 		{
-			"name": "ice_7_png",
+			"url": "assets/Game/gameSence/ice/ice_7.png",
 			"type": "image",
-			"url": "assets/Game/gameSence/ice/ice_7.png"
+			"name": "ice_7_png"
 		},
 		{
-			"name": "soundOn_png",
+			"url": "assets/Game/startSence/soundOn.png",
 			"type": "image",
-			"url": "assets/Game/startSence/soundOn.png"
+			"name": "soundOn_png"
 		},
 		{
-			"name": "soundOff_png",
+			"url": "assets/Game/startSence/soundOff.png",
 			"type": "image",
-			"url": "assets/Game/startSence/soundOff.png"
+			"name": "soundOff_png"
 		},
 		{
-			"name": "musicOn_png",
+			"url": "assets/Game/startSence/musicOn.png",
 			"type": "image",
-			"url": "assets/Game/startSence/musicOn.png"
+			"name": "musicOn_png"
 		},
 		{
-			"name": "musicOff_png",
+			"url": "assets/Game/startSence/musicOff.png",
 			"type": "image",
-			"url": "assets/Game/startSence/musicOff.png"
+			"name": "musicOff_png"
 		},
 		{
-			"name": "bg_box_png",
+			"url": "assets/Game/startSence/bg_box.png",
 			"type": "image",
-			"url": "assets/Game/startSence/bg_box.png"
+			"name": "bg_box_png"
 		},
 		{
-			"name": "btn_return_png",
+			"url": "assets/Game/startSence/btn_return.png",
 			"type": "image",
-			"url": "assets/Game/startSence/btn_return.png"
+			"name": "btn_return_png"
+		},
+		{
+			"url": "assets/Game/sound/classic_theme.mp3",
+			"type": "sound",
+			"name": "classic_theme_mp3"
+		},
+		{
+			"url": "assets/Game/sound/mainmenuloop.mp3",
+			"type": "sound",
+			"name": "mainmenuloop_mp3"
 		}
 	]
 }

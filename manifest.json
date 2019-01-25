@@ -15,6 +15,7 @@
 		"bin-debug/ThemeAdapter.js",
 		"bin-debug/item/Btn_option.js",
 		"bin-debug/item/Dot.js",
+		"bin-debug/item/Skill.js",
 		"bin-debug/manager/SenceManager.js",
 		"bin-debug/manager/SoundManager.js",
 		"bin-debug/LoadingUI.js",

@@ -34,10 +34,23 @@ var GameSence = (function (_super) {
         this.broderX_right = this.img_broder.x + this.img_broder.width - point.x;
         this.broderY_top = this.img_broder.y + point.y;
         this.broderY_bottom = this.img_broder.y + this.img_broder.height - point.y;
+        this.addMoveEvent();
+        //TODO 按钮用touchtap
+        //TODO player的帧事件,判断碰撞到的物体(道具/DOT),相应的方法
+        //TODO 生成道具
+        //TODO 生成DOT
+    };
+    /**添加触摸移动的点击事件 */
+    GameSence.prototype.addMoveEvent = function () {
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
-        //按钮用touchtap
+    };
+    /**移除触摸移动的点击事件  */
+    GameSence.prototype.removeMoveEvent = function () {
+        this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
+        this.removeEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
     };
     GameSence.prototype.touchBegin = function (e) {
         //记录点击的位置
@@ -45,13 +58,11 @@ var GameSence = (function (_super) {
         this.posY = e.stageY;
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
+        //TODO 测试用代码
         var dot = new Dot();
         this.addChild(dot);
     };
-    //TODO 跟随触摸移动 简单粗暴箭头的移动距离就是我触摸移动的距离的2倍
-    //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     GameSence.prototype.touchMove = function (e) {
-        // console.log(`move:${++this.num_move}`)
         //计算移动的距离
         var offsetX = e.stageX - this.posX;
         var offsetY = e.stageY - this.posY;
@@ -76,9 +87,6 @@ var GameSence = (function (_super) {
         else if (rad < -Math.PI) {
             rad += 2 * Math.PI;
         }
-        // this.player.rotation = rad / Math.PI * 180 + 90;
-        // console.log(`别人封装的rad`, rad);
-        // console.log(`加上偏移量`, this.player.rotation)
         var angle = rad / Math.PI * 180 + 90;
         this.tw_rotate(angle);
         //记录下当前的坐标
@@ -86,13 +94,8 @@ var GameSence = (function (_super) {
         this.posY = e.stageY;
     };
     GameSence.prototype.touchEnd = function (e) {
-        // console.log("touchend")
-        // this.num_move = 0;
-        // this.num_frame = 0;
-        // this.removeEventListener(egret.Event.ENTER_FRAME, this.frame, this);
     };
-    GameSence.prototype.frame = function () {
-    };
+    //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     //更新旋转tween
     GameSence.prototype.tw_rotate = function (angle) {
         egret.Tween.removeTweens(this.player);
