@@ -1,8 +1,11 @@
 class GameSence extends eui.Component {
 
-    public img_bg: eui.Image;
-    public player: eui.Image;
+    // public img_bg: eui.Image;
     public img_broder: eui.Image;
+    public player: Player;
+    public dotGroup: eui.Group;
+    public testBtn: eui.Button;
+    public testBtn2: eui.Button;
 
 
     //存储触摸移动的初始点
@@ -38,9 +41,6 @@ class GameSence extends eui.Component {
     }
 
     private init() {
-        this.player.anchorOffsetX = this.player.width / 2;
-        this.player.anchorOffsetY = this.player.height / 2;
-
         //边界内左上角的本地坐标      
         let point: egret.Point = new egret.Point(21, 23);
         //算出边界四个点坐标
@@ -50,25 +50,34 @@ class GameSence extends eui.Component {
         this.broderY_bottom = this.img_broder.y + this.img_broder.height - point.y;
 
         this.addMoveEvent();
-       
+        //TODO player的帧事件,判断碰撞到的物体(道具/DOT),相应的方法
+        this.addEventListener(egret.Event.ENTER_FRAME, this.isDotHit, this);
+
         //TODO 按钮用touchtap
 
-        //TODO player的帧事件,判断碰撞到的物体(道具/DOT),相应的方法
         //TODO 生成道具
-        //TODO 生成DOT
 
+        //TODO 生成DOT 测试用代码
+        let dot = new Dot();
+        this.dotGroup.addChild(dot);
 
+        this.testBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+            GameManager.Instance.stopGame();
+        }, this);
+        this.testBtn2.addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
+            GameManager.Instance.resumeGame();
+        }, this);
     }
 
     /**添加触摸移动的点击事件 */
-    private addMoveEvent(){
+    public addMoveEvent() {
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
         this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
     }
 
     /**移除触摸移动的点击事件  */
-    private removeMoveEvent(){
+    public removeMoveEvent() {
         this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.touchBegin, this);
         this.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.touchMove, this);
         this.removeEventListener(egret.TouchEvent.TOUCH_END, this.touchEnd, this);
@@ -83,11 +92,13 @@ class GameSence extends eui.Component {
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
 
-        //TODO 测试用代码
+        //TODO 生成DOT 测试用代码
         let dot = new Dot();
-        this.addChild(dot);
+        this.dotGroup.addChild(dot);
     }
 
+
+    //移动也用tween动画??
     private touchMove(e: egret.TouchEvent) {
         //计算移动的距离
         let offsetX: number = e.stageX - this.posX;
@@ -100,10 +111,12 @@ class GameSence extends eui.Component {
         //判断是否在边界内 -是 : 赋值给player
         if (newPosX > this.broderX_left && newPosX < this.broderX_right) {
             this.player.x = newPosX;
+
         }
         if (newPosY > this.broderY_top && newPosY < this.broderY_bottom) {
             this.player.y = newPosY;
         }
+
 
         this.ex_point.x = this.posX;
         this.ex_point.y = this.posY;
@@ -123,16 +136,18 @@ class GameSence extends eui.Component {
     }
 
     private touchEnd(e: egret.TouchEvent) {
+        egret.Tween.removeTweens(this.player);
     }
 
     //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     //更新旋转tween
     private tw_rotate(angle: number) {
+        //移除player上所有tween动画
         egret.Tween.removeTweens(this.player);
         let tw: egret.Tween = egret.Tween.get(this.player);
 
-        console.log(`当前旋转: ${this.player.rotation}`)
-        console.log(`需要旋转到:`, angle);
+        // console.log(`当前旋转: ${this.player.rotation}`)
+        // console.log(`需要旋转到:`, angle);
         if (angle >= 180) {
             angle -= 360 * (Math.floor(angle / 360) + 1);
         } else if (angle <= -180) {
@@ -141,10 +156,14 @@ class GameSence extends eui.Component {
         // console.log(`处理`, angle)
         //判断顺时针转还是逆时针转
         tw.to({ rotation: angle }, 100);
-    }
 
+    }
 
     //TODO 需要一个对象池存放dot
 
+    //TODO 处理碰撞检测
+    private isDotHit() {
+
+    }
 
 }

@@ -11,7 +11,7 @@ class SoundManager {
     //菜单界面音乐的对象以及加载状态
     private menuMusic: egret.Sound;
     private menuMusic_channel: egret.SoundChannel;
-    private ismenuMsuciComplete: boolean = false;
+    // private ismenuMsuciComplete: boolean = false;
 
     //TODO 游戏背景音乐--playBGM , stopBGM
 
@@ -25,16 +25,22 @@ class SoundManager {
     private _vibrator: boolean;
 
     public constructor() {
+        //改用res加载需要提前加载的,以便在进入游戏场景就可以马上播放
         this.menuMusic = new egret.Sound();
-        this.menuMusic.load("resource/assets/Game/sound/mainmenuloop.mp3");
-        this.menuMusic.addEventListener(egret.Event.COMPLETE, () => {
-            this.ismenuMsuciComplete = true;
-        }, this);
+        this.menuMusic=RES.getRes('mainmenuloop_mp3');
+
+        // this.menuMusic = new egret.Sound();        
+        // this.menuMusic.load("resource/assets/Game/sound/mainmenuloop.mp3");
+        // this.menuMusic.addEventListener(egret.Event.COMPLETE, () => {
+        //     this.ismenuMsuciComplete = true;
+        // }, this);
+
+
     }
 
     /**播放菜单界面背景音乐 */
-    public playMenuMusic() {
-        if (this.ismenuMsuciComplete && this.isMusicOn && this.menuMusic_channel == null) {
+    public playMenuMusic() {        
+        if (this.isMusicOn && this.menuMusic_channel == null) {
             this.menuMusic_channel = this.menuMusic.play(0, 0);
             //TODO 设置音量,从本地读取
             this.menuMusic_channel.volume = 1

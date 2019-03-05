@@ -54,6 +54,8 @@ declare class Btn_optionSkin extends eui.Skin{
 }
 declare class DotSkin extends eui.Skin{
 }
+declare class PlayerSkin extends eui.Skin{
+}
 declare class GameOverSenceSkin extends eui.Skin{
 }
 declare class GameSenceSkin extends eui.Skin{

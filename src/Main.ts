@@ -68,12 +68,22 @@ class Main extends eui.UILayer {
 
     private async loadResource() {
         try {
-            const loadingView = new LoadingUI();
-            this.stage.addChild(loadingView);
+            const loadingViewSound = new LoadingUI();
+            const loadingViewPreload = new LoadingUI();
+
             await RES.loadConfig("resource/default.res.json", "resource/");
             await this.loadTheme();
-            await RES.loadGroup("preload", 0, loadingView);
-            this.stage.removeChild(loadingView);
+
+            //加载声音素材,并实例化声音管理器
+            this.stage.addChild(loadingViewSound);
+            await RES.loadGroup("sounds", 0, loadingViewSound);
+            SoundManager.Instance;
+            this.stage.removeChild(loadingViewSound);
+
+            //加载preload组
+            this.stage.addChild(loadingViewPreload);
+            await RES.loadGroup("preload", 0, loadingViewPreload);
+            this.stage.removeChild(loadingViewPreload);
         }
         catch (e) {
             console.error(e);

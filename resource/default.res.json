@@ -5,10 +5,6 @@
 			"name": "preload"
 		},
 		{
-			"keys": "",
-			"name": "startSence"
-		},
-		{
 			"keys": "classic_theme_mp3,mainmenuloop_mp3",
 			"name": "sounds"
 		}

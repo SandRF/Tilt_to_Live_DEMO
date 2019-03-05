@@ -119,29 +119,38 @@ var Main = (function (_super) {
     };
     Main.prototype.loadResource = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loadingView, e_1;
+            var loadingViewSound, loadingViewPreload, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 4, , 5]);
-                        loadingView = new LoadingUI();
-                        this.stage.addChild(loadingView);
+                        _a.trys.push([0, 5, , 6]);
+                        loadingViewSound = new LoadingUI();
+                        loadingViewPreload = new LoadingUI();
                         return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
                     case 1:
                         _a.sent();
                         return [4 /*yield*/, this.loadTheme()];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
+                        //加载声音素材,并实例化声音管理器
+                        this.stage.addChild(loadingViewSound);
+                        return [4 /*yield*/, RES.loadGroup("sounds", 0, loadingViewSound)];
                     case 3:
                         _a.sent();
-                        this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 5];
+                        SoundManager.Instance;
+                        this.stage.removeChild(loadingViewSound);
+                        //加载preload组
+                        this.stage.addChild(loadingViewPreload);
+                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingViewPreload)];
                     case 4:
+                        _a.sent();
+                        this.stage.removeChild(loadingViewPreload);
+                        return [3 /*break*/, 6];
+                    case 5:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 5];
-                    case 5: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });

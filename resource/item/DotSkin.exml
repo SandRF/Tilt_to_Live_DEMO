@@ -2,5 +2,5 @@
 <e:Skin class="DotSkin"
 	 width="28"
 	height="28" xmlns:e="http://ns.egret.com/eui">
-	<e:Image source="dot_01_png"/>
+	<e:Image source="dot_01_png" anchorOffsetX="14" anchorOffsetY="14"/>
 </e:Skin>

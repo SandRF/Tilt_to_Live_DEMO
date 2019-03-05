@@ -25,8 +25,6 @@ var GameSence = (function (_super) {
         this.init();
     };
     GameSence.prototype.init = function () {
-        this.player.anchorOffsetX = this.player.width / 2;
-        this.player.anchorOffsetY = this.player.height / 2;
         //边界内左上角的本地坐标      
         var point = new egret.Point(21, 23);
         //算出边界四个点坐标
@@ -35,10 +33,19 @@ var GameSence = (function (_super) {
         this.broderY_top = this.img_broder.y + point.y;
         this.broderY_bottom = this.img_broder.y + this.img_broder.height - point.y;
         this.addMoveEvent();
-        //TODO 按钮用touchtap
         //TODO player的帧事件,判断碰撞到的物体(道具/DOT),相应的方法
+        this.addEventListener(egret.Event.ENTER_FRAME, this.isDotHit, this);
+        //TODO 按钮用touchtap
         //TODO 生成道具
-        //TODO 生成DOT
+        //TODO 生成DOT 测试用代码
+        var dot = new Dot();
+        this.dotGroup.addChild(dot);
+        this.testBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            GameManager.Instance.stopGame();
+        }, this);
+        this.testBtn2.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            GameManager.Instance.resumeGame();
+        }, this);
     };
     /**添加触摸移动的点击事件 */
     GameSence.prototype.addMoveEvent = function () {
@@ -58,10 +65,11 @@ var GameSence = (function (_super) {
         this.posY = e.stageY;
         this.ex_point = new egret.Point();
         this.cur_point = new egret.Point();
-        //TODO 测试用代码
+        //TODO 生成DOT 测试用代码
         var dot = new Dot();
-        this.addChild(dot);
+        this.dotGroup.addChild(dot);
     };
+    //移动也用tween动画??
     GameSence.prototype.touchMove = function (e) {
         //计算移动的距离
         var offsetX = e.stageX - this.posX;
@@ -94,14 +102,16 @@ var GameSence = (function (_super) {
         this.posY = e.stageY;
     };
     GameSence.prototype.touchEnd = function (e) {
+        egret.Tween.removeTweens(this.player);
     };
     //TODO 箭头指向 //旋转 以锚点为中心,顺时针旋转 //算出箭头自身的向量 move的点的向量 夹角
     //更新旋转tween
     GameSence.prototype.tw_rotate = function (angle) {
+        //移除player上所有tween动画
         egret.Tween.removeTweens(this.player);
         var tw = egret.Tween.get(this.player);
-        console.log("\u5F53\u524D\u65CB\u8F6C: " + this.player.rotation);
-        console.log("\u9700\u8981\u65CB\u8F6C\u5230:", angle);
+        // console.log(`当前旋转: ${this.player.rotation}`)
+        // console.log(`需要旋转到:`, angle);
         if (angle >= 180) {
             angle -= 360 * (Math.floor(angle / 360) + 1);
         }
@@ -111,6 +121,10 @@ var GameSence = (function (_super) {
         // console.log(`处理`, angle)
         //判断顺时针转还是逆时针转
         tw.to({ rotation: angle }, 100);
+    };
+    //TODO 需要一个对象池存放dot
+    //TODO 处理碰撞检测
+    GameSence.prototype.isDotHit = function () {
     };
     return GameSence;
 }(eui.Component));

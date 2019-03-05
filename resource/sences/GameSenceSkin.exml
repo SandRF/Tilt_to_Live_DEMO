@@ -1,7 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <e:Skin class="GameSenceSkin"
 	 width="750"
-	height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="player" source="player_png" x="327" y="540" scaleX="1.5" scaleY="1.5" touchEnabled="false" locked="true"/>
+	height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
 	<e:Image id="img_broder" source="broder_png" scale9Grid="250,450,250,449" width="712" height="1214" x="20" y="60" rotation="0"/>
+	<ns1:Player id="player" x="342" y="612" skinName="PlayerSkin"/>
+	<e:Group id="dotGroup" left="0" right="0" top="0" bottom="0">
+	</e:Group>
+	<e:Button id="testBtn" label="" x="511.769" y="1279.529"/>
+	<e:Button id="testBtn2" label="" x="635.964" y="1279.546"/>
 </e:Skin>
